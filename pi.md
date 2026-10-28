@@ -41,12 +41,7 @@ sudo apt full-upgrade
 
 # Install tools
 
-```bash
-sudo apt install vim \
-    git \
-    fastfetch
-```
-
+## ZSH
 ```bash
 sudo apt install zsh
 chsh -s /usr/bin/zsh
@@ -54,4 +49,45 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sudo apt install fonts-powerline -y
 ```
 
+## Install docker
+Do not install Docker with Debian official package. Follow Docker official documentation: https://docs.docker.com/engine/install/debian/
 
+``` bash
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+``` bash
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl status docker
+``` 
+
+Add user into Docker's usergroup
+``` bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+## Collection of tools
+
+| Tools | What it brings | How to install |
+|---|---|---|
+| git | Version control | `apt install git` |
+| FastFetch | Display information about the host | `apt install fastfetch` |
+| LazyDocker | TUI to manager docker containers | `curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash` |
