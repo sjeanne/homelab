@@ -91,3 +91,4 @@ sudo usermod -aG docker $USER
 | git | Version control | `apt install git` |
 | FastFetch | Display information about the host | `apt install fastfetch` |
 | LazyDocker | TUI to manager docker containers | `curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash` |
+| LazyGit | Git TUI | `apt install lazygit` |
