@@ -1,0 +1,124 @@
+---
+# Homepage configuration
+
+title: "Tsukos Home"
+subtitle: "Welcome"
+# documentTitle: "Welcome" # Customize the browser tab text
+logo: "assets/logo.png"
+# Alternatively a fa icon can be provided:
+# icon: "fas fa-skull-crossbones"
+
+header: true # Set to false to hide the header
+# Optional: Different hotkey for search, defaults to "/"
+# hotkey:
+#   search: "Shift"
+footer: false
+
+columns: "3" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+connectivityCheck: true # whether you want to display a message when the apps are not accessible anymore (VPN disconnected for example).
+                        # You should set it to true when using an authentication proxy, it also reloads the page when a redirection is detected when checking connectivity.
+
+# Optional: Proxy / hosting option
+proxy:
+  useCredentials: false # send cookies & authorization headers when fetching service specific data. Set to `true` if you use an authentication proxy. Can be overrided on service level. 
+  headers: # send custom headers when fetching service specific data. Can also be set on a service level.
+    Test: "Example"
+    Test1: "Example1"
+
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
+  iconWidth: auto # Either 'auto', or 'fixed'
+
+# Optional theming
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
+
+
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#f5f5f5"
+    card-background: "#ffffff"
+    text: "#363636"
+    text-header: "#424242"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+    background-image: "/assets/your/light/bg.png" # prefix with your sub subpath if any (ex: /homer/assets/...)
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#2b2b2b"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+    background-image: "/assets/your/dark/bg.png" # prefix with your sub subpath if any (ex: /homer/assets/...)
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Source"
+    icon: "fab fa-github"
+    url: "https://github.com/sjeanne/homelab"
+    target: "_blank" # optional html tag target attribute
+
+# Optional: enable periodic refresh for all smart cards that implements it (unless overriden at service configuration level).
+updateIntervalMs: 30000 # interval in milliseconds, minimum is 1000 (1s). Remove or set to 0 to disable. Can be overriden at service level. (default disabled)
+
+# Services
+# First level array represents a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Application"
+    icon: "fas fa-code-branch"
+    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
+    # logo: "path/to/logo"
+    # class: "highlight-purple" # Optional css class to add on the service group. 
+    items:
+      - name: "Awesome app"
+        logo: "assets/tools/sample.png"
+        # Alternatively a fa icon can be provided. Note that icon take precedence if both icon and logo are set.
+        # icon: "fab fa-jenkins"
+        subtitle: "Bookmark example"
+        tag: "app"
+        keywords: "self hosted reddit" # optional keyword used for searching purpose
+        url: "https://www.reddit.com/r/selfhosted/"
+        target: "_blank" # optional html tag target attribute
+        # Optional shortcut links, shown as small pills along the bottom of the card.
+        quick:
+          - name: "Wiki"
+            url: "https://www.reddit.com/r/selfhosted/wiki/"
+            icon: "fas fa-book" # optional
+            target: "_blank" # optional
+            color: "#4285f4" # optional, overrides the default pill background
+      - name: "Another one"
+        logo: "assets/tools/sample2.png"
+        subtitle: "Another application"
+        tag: "app"
+        # Optional tagstyle
+        tagstyle: "is-success"
+        url: "#"
+  - name: "Monitoring"
+    icon: "fas fa-heartbeat"
+    items:
+      - name: "Pi-hole"
+        logo: "assets/images/pi_hole_logo.png"
+        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+        tag: "other"
+        url: "https://pi:8443/admin"
+        type: "PiHole" 
+        target: "_blank" # optional html a tag target attribute
