@@ -4,7 +4,7 @@
 title: "Tsukos Home"
 subtitle: "Welcome"
 # documentTitle: "Welcome" # Customize the browser tab text
-logo: "assets/logo.png"
+logo: "assets/images/tsukos.png"
 # Alternatively a fa icon can be provided:
 # icon: "fas fa-skull-crossbones"
 
@@ -83,42 +83,15 @@ updateIntervalMs: 30000 # interval in milliseconds, minimum is 1000 (1s). Remove
 # First level array represents a group.
 # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
 services:
-  - name: "Application"
-    icon: "fas fa-code-branch"
-    # A path to an image can also be provided. Note that icon take precedence if both icon and logo are set.
-    # logo: "path/to/logo"
-    # class: "highlight-purple" # Optional css class to add on the service group. 
-    items:
-      - name: "Awesome app"
-        logo: "assets/tools/sample.png"
-        # Alternatively a fa icon can be provided. Note that icon take precedence if both icon and logo are set.
-        # icon: "fab fa-jenkins"
-        subtitle: "Bookmark example"
-        tag: "app"
-        keywords: "self hosted reddit" # optional keyword used for searching purpose
-        url: "https://www.reddit.com/r/selfhosted/"
-        target: "_blank" # optional html tag target attribute
-        # Optional shortcut links, shown as small pills along the bottom of the card.
-        quick:
-          - name: "Wiki"
-            url: "https://www.reddit.com/r/selfhosted/wiki/"
-            icon: "fas fa-book" # optional
-            target: "_blank" # optional
-            color: "#4285f4" # optional, overrides the default pill background
-      - name: "Another one"
-        logo: "assets/tools/sample2.png"
-        subtitle: "Another application"
-        tag: "app"
-        # Optional tagstyle
-        tagstyle: "is-success"
-        url: "#"
   - name: "Monitoring"
-    icon: "fas fa-heartbeat"
+    icon: "fas fa-screwdriver-wrench"
     items:
       - name: "Pi-hole"
         logo: "assets/images/pi_hole_logo.png"
-        # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
-        tag: "other"
         url: "https://pi:8443/admin"
-        type: "PiHole" 
+        subtitle: "DNS, DHCP" 
         target: "_blank" # optional html a tag target attribute
+      - name: "Monitor"
+        icon: "fas fa-heartbeat"
+        subtitle: "Beszel"
+        url: "http://pi:8090"

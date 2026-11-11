@@ -84,6 +84,21 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
+Docker stats have access to memory used by containers. Monitoring apps, such Beszel won't be able to monitor docker's containers.
+Enable cgroups memory accounting.
+``` bash
+sudo vi /boot/firmware/cmdline.txt
+````
+
+Add at <u>**the end of line**</u>:
+```
+cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
+```
+
+Reboot the Pi
+
+Reference: https://akashrajpurohit.com/blog/resolving-missing-memory-stats-in-docker-stats-on-raspberry-pi/
+
 ## Collection of tools
 
 | Tools | What it brings | How to install |
